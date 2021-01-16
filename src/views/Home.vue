@@ -10,11 +10,13 @@
   <div class="box-content mx-auto w-1/3 mt-2">
     <div class="p-4 border-2 flex flex-wrap justify-center">
       <div
-        class="ml-4 text-2xl text-white"
+        class="ml-4 text-2xl text-gray-800 py-2 px-3 hover:bg-yellow-300 rounded-md"
         v-for="(pokemon, idx) in filteredPokemon"
         :key="idx"
       >
-        <h5>{{ pokemon.name }}</h5>
+        <router-link :to="`/about/${urlIdLookup[pokemon.name]}`">{{
+          pokemon.name
+        }}</router-link>
       </div>
     </div>
   </div>
@@ -32,7 +34,7 @@ export default {
       pokename: "",
       filteredPokemon: computed(() => updatePokemon())
     });
-    fetch("https://pokeapi.co/api/v2/pokemon?offset=0")
+    fetch("https://pokeapi.co/api/v2/pokemon")
       .then(res => res.json())
       .then(data => {
         state.pokemons = data.results;

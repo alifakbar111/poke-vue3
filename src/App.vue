@@ -1,12 +1,13 @@
 <template>
-  <section class="bg-cover bg-gray-600 block px-6 py-72">
+  <div class="p-14">
     <router-link
       to="/"
-      class="flex justify-center text-4xl text-yellow-300 mb-7"
+      tag="button"
+      class="flex justify-center text-4xl text-yellow-400 mb-7 hover:bg-yellow-100 rounded-md px-2 py-3 nar"
       >Pokemon Picker</router-link
     >
     <router-view />
-  </section>
+  </div>
 </template>
 
 <style lang="scss"></style>
